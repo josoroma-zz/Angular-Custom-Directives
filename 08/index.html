@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="PrefixApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1" />
+  <title>AngularJS — Directives - Compile, Controller and Link</title>
+  <meta name="author" content="josoroma.com">
+  <link rel="stylesheet" href="../css/style.css" media="screen" charset="utf-8">
+</head>
+<body>
+
+  <div class="topic">
+    <compile-directive></compile-directive>
+
+    <parent-directive>
+      <child-directive></child-directive>
+    </parent-directive>
+  </div>
+
+  <!-- Using the common Controller & Post-Link Pattern  -->
+
+  <div class="topic">
+    <mother-directive>
+      <p>{{greeting}}</p>
+      <daughter-directive>
+        <p>{{daughterSays}}</p>
+      </my-son>
+    </daughter-directive>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

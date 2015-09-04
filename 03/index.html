@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="PrefixApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1" />
+  <title>AngularJS — Directives - Binding and Callable Expressions</title>
+  <meta name="author" content="josoroma.com">
+  <link rel="stylesheet" href="../css/style.css" media="screen" charset="utf-8">
+</head>
+<body ng-controller="prefixAppCtrl">
+
+  <div class="line">
+    <strong>{{name}}</strong>
+    <input type="button" ng-click="reverseName()" value="Reverse name">
+  </div>
+
+  <div class="line">
+    <strong style="color:{{color}}">{{color|uppercase}}</strong>
+    <input type="button" ng-click="randomColor()" value="Randomize color">
+  </div>
+
+  <div class="directive" prefix-app-directive
+    name="name"
+    color="color"
+    reverse="reverseName()">
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

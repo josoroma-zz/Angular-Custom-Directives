@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="PrefixApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1" />
+  <title>AngularJS — Directives - Compilation Process</title>
+  <meta name="author" content="josoroma.com">
+  <link rel="stylesheet" href="../css/style.css" media="screen" charset="utf-8">
+</head>
+<body>
+
+  <div compile-directive="Mother" class="parent">
+    <div compile-directive="..Son" class="child">
+      <div compile-directive="....Grandchild A" class="grandchild"></div>
+    </div>
+    <div compile-directive="..Daugther" class="child">
+      <div compile-directive="....Grandchild B" class="grandchild"></div>
+      <div compile-directive="....Grandchild C" class="grandchild"></div>
+    </div>
+  </div>
+
+  <!-- LOG -->
+  <pre>{{log}}</pre>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="PrefixApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1" />
+  <title>AngularJS — Directives - Deferred Rendering with Element Transclusion</title>
+  <meta name="author" content="josoroma.com">
+  <link rel="stylesheet" href="../css/style.css" media="screen" charset="utf-8">
+</head>
+<body ng-controller="prefixAppCtrl as ctrl">
+
+  <!-- Advanced -->
+
+  <prefix-app-deferred-directive data-title="ctrl.title" data-image="ctrl.image">
+    <p>{{ctrl.body}}</p>
+  </prefix-app-deferred-directive>
+
+  <prefix-app-deferred-directive
+    data-title="'Mastering Transclusion'"
+    data-image="'http://fakeimg.pl/280x280/FFC200/000/?text=JS'">
+    <button ng-click="prefixAppDeferredCollapse()">Outer Hide</button>
+    <p>Transclusion Scope</p>
+  </prefix-app-deferred-directive>
+
+  <script type="text/ng-template" id="prefixAppDeferredPartial">
+    <article class="topic">
+      <button ng-if="!ctrl.expanded" ng-click="ctrl.expand()">&#9656;</button>
+      <button ng-if="ctrl.expanded" ng-click="ctrl.collapse()">&#9662;</button>
+      <h2>{{ctrl.title}}</h2>
+      <figure ng-show="ctrl.expanded">
+        <img ng-src="{{ctrl.image}}">
+      </figure>
+      <div class="content"></div>
+      <button ng-if="ctrl.expanded" ng-click="ctrl.collapse()">Inner Hide</button>
+    </article>
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

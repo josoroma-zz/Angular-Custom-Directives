@@ -1,0 +1,28 @@
+.directive, .topic {
+    padding: 10px;
+    border: 10px solid #cbccdd;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.line {
+  border-bottom: 1px dotted #ccc;
+  padding: 5px 0;
+}
+
+div.parent, div.child, div.grandchild {
+  padding: 5px;
+  margin: 5px;
+  background-color: #EEE;
+  border: 1px solid #BBB;
+}
+
+div.parent > div.child {
+  background-color: #DDD;
+  padding-left: 10px;
+}
+
+div.parent > div.child > div.grandchild {
+  background-color: #CCC;
+  padding-left: 15px;
+}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app="PrefixApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1" />
+  <title>AngularJS — Directives - Basic Transclusion and Lifecycle</title>
+  <meta name="author" content="josoroma.com">
+  <link rel="stylesheet" href="../css/style.css" media="screen" charset="utf-8">
+</head>
+<body ng-controller="prefixAppCtrl as data">
+
+  <!-- Basic -->
+
+  <prefix-app-card-directive data-username="'username'" data-image="data.image">
+    <p>About me.</p>
+  </prefix-app-card-directive>
+
+  <script type="text/ng-template" id="prefixAppCardPartial">
+    <article class="topic">
+      <h2>{{ctrl.username}}</h2>
+      <img ng-src="{{ctrl.image}}">
+      <div ng-transclude></div>
+    </article>
+  </script>
+
+  <!-- Intermediate -->
+
+  <prefix-app-lifecycle-directive data-username="data.username" data-image="data.image">
+    <p>{{data.about}}</p>
+    <button ng-click="prefixAppLifecycleCollapse()">Hide</button>
+  </prefix-app-lifecycle-directive>
+
+  <script type="text/ng-template" id="prefixAppLifecyclePartial">
+    <article class="topic">
+      <h2>
+        <button ng-if="!ctrl.expanded" ng-click="ctrl.expand()">
+          &#9656;
+        </button>
+        <button ng-if="ctrl.expanded" ng-click="ctrl.collapse()">
+          &#9662;
+        </button>
+        {{ctrl.username}}
+      </h2>
+      <figure ng-show="ctrl.expanded">
+        <img ng-src="{{ctrl.image}}">
+      </figure>
+      <div class="content"></div>
+    </article>
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
